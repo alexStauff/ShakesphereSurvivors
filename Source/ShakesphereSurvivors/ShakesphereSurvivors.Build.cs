@@ -22,10 +22,11 @@ public class ShakesphereSurvivors : ModuleRules
 			"UMG",
 			"Slate"
 		});
+        PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "EnhancedInput" });
 
-		PrivateDependencyModuleNames.AddRange(new string[] { });
+        PrivateDependencyModuleNames.AddRange(new string[] {});
 
-		PublicIncludePaths.AddRange(new string[] {
+        PublicIncludePaths.AddRange(new string[] {
 			"ShakesphereSurvivors",
 			"ShakesphereSurvivors/Variant_Strategy",
 			"ShakesphereSurvivors/Variant_Strategy/UI",
@@ -35,6 +36,7 @@ public class ShakesphereSurvivors : ModuleRules
 			"ShakesphereSurvivors/Variant_TwinStick/UI"
 		});
 
+		//PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "EnhancedInput" });
 		// Uncomment if you are using Slate UI
 		// PrivateDependencyModuleNames.AddRange(new string[] { "Slate", "SlateCore" });
 
