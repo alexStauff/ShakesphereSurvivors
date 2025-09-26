@@ -7,6 +7,9 @@
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h" 
 #include "InputActionValue.h"
+#include "Runtime/Engine/Classes/Kismet/GameplayStatics.h"
+#include "Runtime/Engine/Classes/GameFramework/PlayerController.h"
+#include "survivorItem.h"
 #include "SurvivorBase.generated.h"
 
 UCLASS()
@@ -22,6 +25,9 @@ public:
 	float movementSpeed = 1.0f;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Stats")
 	float healthValue = 1.0f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Equpiment")
+	TArray<UsurvivorItem*> equipmentTimers;
 
 protected:
 	// Called when the game starts or when spawned

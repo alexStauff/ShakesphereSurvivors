@@ -2,6 +2,7 @@
 
 
 #include "SurvivorBase.h"
+#include <Kismet/KismetMathLibrary.h>
 
 // Sets default values
 ASurvivorBase::ASurvivorBase()
@@ -16,10 +17,13 @@ void ASurvivorBase::BeginPlay()
 {
 	Super::BeginPlay();
 	check(GEngine != nullptr);
-
+	bUseControllerRotationPitch = false;
+	bUseControllerRotationYaw = false;
+	bUseControllerRotationRoll = false;
 	// Get the player controller for this character
 	if (APlayerController* PlayerController = Cast<APlayerController>(Controller))
 	{
+		PlayerController->bShowMouseCursor = true;
 		// Get the enhanced input local player subsystem and add a new input mapping context to it
 		if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(PlayerController->GetLocalPlayer()))
 		{
@@ -36,7 +40,13 @@ void ASurvivorBase::BeginPlay()
 void ASurvivorBase::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
+	FVector pLoc = GetActorLocation();
+	FRotator pRot = GetActorRotation();
+	FVector WorldLocation;
+	FVector WorldDirection;
+	Cast<APlayerController>(GetController())->DeprojectMousePositionToWorld(WorldLocation, WorldDirection);
+	pRot.Yaw = UKismetMathLibrary::FindLookAtRotation(pLoc, WorldLocation).Yaw;
+	SetActorRotation(pRot);
 }
 
 // Called to bind functionality to input
