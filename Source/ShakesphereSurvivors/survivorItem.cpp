@@ -29,3 +29,22 @@ void UsurvivorItem::TickComponent(float DeltaTime, ELevelTick TickType, FActorCo
 	// ...
 }
 
+void UsurvivorItem::DecrementTime(float DeltaTime)
+{
+	currentTimer = currentTimer - DeltaTime;
+	//GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Yellow, FString::Printf(TEXT("My Float Value: %f"), currentTimer));
+	if (currentTimer <= 0.0f && !currentlyAttacking) {
+		currentlyAttacking = true;
+		ActivateItem();
+	}
+}
+
+void UsurvivorItem::ActivateItem()
+{
+	//Logic to use weapon, for x attacks
+	//Reset Timer
+	GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("SHAW!"));
+	currentTimer = baseCooldown * cooldownReduction;
+	currentlyAttacking = false;
+}
+

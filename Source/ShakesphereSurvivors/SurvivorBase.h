@@ -10,6 +10,7 @@
 #include "Runtime/Engine/Classes/Kismet/GameplayStatics.h"
 #include "Runtime/Engine/Classes/GameFramework/PlayerController.h"
 #include "survivorItem.h"
+#include "survivorWeaponArc.h"
 #include "SurvivorBase.generated.h"
 
 UCLASS()
@@ -27,7 +28,7 @@ public:
 	float healthValue = 1.0f;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Equpiment")
-	TArray<UsurvivorItem*> equipmentTimers;
+	TArray<UsurvivorItem*> playerEquipment;
 
 protected:
 	// Called when the game starts or when spawned
@@ -53,4 +54,9 @@ public:
 	UFUNCTION()
 	void MoveX(const FInputActionValue& Value);
 	void MoveY(const FInputActionValue& Value);
+
+	UFUNCTION(BlueprintCallable, Category = "easeOfUse")
+	void equipWeapon(UsurvivorItem* newWeapon);
+
 };
+

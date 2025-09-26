@@ -15,6 +15,8 @@ class SHAKESPHERESURVIVORS_API UsurvivorWeaponArc : public UsurvivorItem
 	GENERATED_BODY()
 public:
 	UsurvivorWeaponArc();
+	void DecrementTime(float delta);
+	void ActivateItem();
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Stats")
 	float arcAngle = 45.0f;
 
