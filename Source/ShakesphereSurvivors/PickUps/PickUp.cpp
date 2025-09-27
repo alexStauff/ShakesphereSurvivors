@@ -1,6 +1,6 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-#include "SurvivorBase.h"
+
 #include "PickUp.h"
 
 // Sets default values

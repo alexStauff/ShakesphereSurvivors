@@ -3,14 +3,14 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "PickUp.h"
-#include "Xp.generated.h"
+#include "GameFramework/PlayerController.h"
+#include "PC_Survivor.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class SHAKESPHERESURVIVORS_API AXp : public APickUp
+class SHAKESPHERESURVIVORS_API APC_Survivor : public APlayerController
 {
 	GENERATED_BODY()
 	

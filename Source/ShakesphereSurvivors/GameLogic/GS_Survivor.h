@@ -3,14 +3,14 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "survivorWeaponProjectile.h"
-#include "bp_dagger.generated.h"
+#include "GameFramework/GameState.h"
+#include "GS_Survivor.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class SHAKESPHERESURVIVORS_API Ubp_dagger : public UsurvivorWeaponProjectile
+class SHAKESPHERESURVIVORS_API AGS_Survivor : public AGameState
 {
 	GENERATED_BODY()
 	

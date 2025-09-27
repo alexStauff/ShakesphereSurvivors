@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
-#include "survivorItem.h"
+#include "../survivorItem.h"
 #include "BaseProjectile.h"
 #include "survivorWeaponProjectile.generated.h"
 

@@ -3,14 +3,14 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Engine/DataAsset.h"
-#include "Example.generated.h"
+#include "GameFramework/GameState.h"
+#include "GS_ShakesphereSurvivors.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class SHAKESPHERESURVIVORS_API UExample : public UDataAsset
+class SHAKESPHERESURVIVORS_API AGS_ShakesphereSurvivors : public AGameState
 {
 	GENERATED_BODY()
 	

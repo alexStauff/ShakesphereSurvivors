@@ -9,9 +9,9 @@
 #include "InputActionValue.h"
 #include "Runtime/Engine/Classes/Kismet/GameplayStatics.h"
 #include "Runtime/Engine/Classes/GameFramework/PlayerController.h"
-#include "survivorItem.h"
-#include "survivorWeaponArc.h"
-#include "survivorWeaponProjectile.h"
+#include "../Equipment/survivorItem.h"
+#include "../Equipment/Cleaves/survivorWeaponArc.h"
+#include "../Equipment/Projectiles/survivorWeaponProjectile.h"
 #include "SurvivorBase.generated.h"
 
 UCLASS()
@@ -28,13 +28,14 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Stats")
 	float healthValue = 1.0f;
 
+
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Equpiment")
 	TArray<UsurvivorItem*> playerEquipment;
 
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
-
+	
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Input")
 	TObjectPtr<UInputMappingContext> PlayerContext;
 

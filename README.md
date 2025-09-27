@@ -1,3 +1,1 @@
-# ShakesphereSurvivors
-
-Developed with Unreal Engine 5
+72 hour GameJam furing workweek with the theme all life is a stage

@@ -3,14 +3,14 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "PickUp.h"
-#include "ActProgressionPoints.generated.h"
+#include "../survivorWeaponProjectile.h"
+#include "bp_dagger.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class SHAKESPHERESURVIVORS_API AActProgressionPoints : public APickUp
+class SHAKESPHERESURVIVORS_API Ubp_dagger : public UsurvivorWeaponProjectile
 {
 	GENERATED_BODY()
 	

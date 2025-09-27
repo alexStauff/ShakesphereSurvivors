@@ -3,6 +3,10 @@
 #pragma once
 
 #include "CoreMinimal.h"
+
+#include "../PickUps/PickUp.h"
+#include "../PickUps/Xp.h"
+#include "../GameLogic/GM_ShakesphereSurvivors.h"
 #include "GameFramework/Character.h"
 #include "BaseEnemyChar.generated.h"
 
@@ -23,7 +27,15 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	// Override the TakeDamage function
+	virtual float TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEvent, class AController* EventInstigator, AActor* DamageCauser) override;
+
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
+	UPROPERTY(EditAnywhere)
+	float CurrentHealth = 1.0f;
+
+	UPROPERTY(EditAnywhere)
+	int progressionValue = 1;
 };
