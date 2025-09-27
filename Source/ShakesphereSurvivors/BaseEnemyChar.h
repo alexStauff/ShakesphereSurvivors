@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "GM_ShakesphereSurvivors.h"
 #include "PickUp.h"
 #include "Xp.h"
 #include "GameFramework/Character.h"
@@ -33,4 +34,7 @@ public:
 
 	UPROPERTY(EditAnywhere)
 	float CurrentHealth = 1.0f;
+
+	UPROPERTY(EditAnywhere)
+	int progressionValue = 1;
 };

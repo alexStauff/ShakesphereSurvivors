@@ -52,6 +52,10 @@ float ABaseEnemyChar::TakeDamage(float DamageAmount, FDamageEvent const& DamageE
             if (pickUp) {
                 pickUp->XPValueOnPickUp = 5;
             }
+            AGM_ShakesphereSurvivors* gm_ref = Cast<AGM_ShakesphereSurvivors>(GetWorld()->GetAuthGameMode());
+            if (gm_ref) {
+                gm_ref->progress(1);
+            }
         }
         Destroy();
         // Implement death logic here (e.g., play death animation, destroy actor)
