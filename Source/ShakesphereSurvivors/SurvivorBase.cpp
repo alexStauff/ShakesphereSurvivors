@@ -30,9 +30,11 @@ void ASurvivorBase::BeginPlay()
 			Subsystem->AddMappingContext(PlayerContext, 0);
 		}
 	}
+	UsurvivorItem* NewComponent = NewObject<UsurvivorWeaponProjectile>(this, TEXT("ItemSlot1"));
+	equipWeapon(NewComponent);
 	// Display a debug message for five seconds. 
 	// The -1 "Key" value argument prevents the message from being updated or refreshed.
-	GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("We are using SurvivorBaseCharacter."));
+	//GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("We are using SurvivorBaseCharacter."));
 	
 }
 
@@ -47,6 +49,11 @@ void ASurvivorBase::Tick(float DeltaTime)
 	Cast<APlayerController>(GetController())->DeprojectMousePositionToWorld(WorldLocation, WorldDirection);
 	pRot.Yaw = UKismetMathLibrary::FindLookAtRotation(pLoc, WorldLocation).Yaw;
 	SetActorRotation(pRot);
+	//GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("Currently have %d equipped items"), playerEquipment.Num());
+	for (int i = 0; i < playerEquipment.Num(); i++) {
+		
+		playerEquipment[i]->DecrementTime(DeltaTime);
+	}
 }
 
 // Called to bind functionality to input
@@ -75,6 +82,18 @@ void ASurvivorBase::MoveY(const FInputActionValue& Value)
 	const FVector2D MovementValue = Value.Get<FVector2D>();
 	if (Controller) {
 		AddMovementInput(FVector(0.0f, MovementValue.X, 0.0f), movementSpeed);
+	}
+}
+
+void ASurvivorBase::equipWeapon(UsurvivorItem* newWeapon)
+{
+	if (playerEquipment.Num() < 3) {
+		playerEquipment.Add(newWeapon);
+		if (newWeapon)
+		{
+			newWeapon->RegisterComponent(); // Register the component with the engine
+		}
+
 	}
 }
 

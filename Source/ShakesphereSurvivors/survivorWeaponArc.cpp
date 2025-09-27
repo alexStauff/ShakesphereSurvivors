@@ -6,3 +6,10 @@
 UsurvivorWeaponArc::UsurvivorWeaponArc()
 {
 }
+
+void UsurvivorWeaponArc::DecrementTime(float delta) {
+	Super::DecrementTime(delta);
+}
+void UsurvivorWeaponArc::ActivateItem() {
+	Super::ActivateItem();
+}

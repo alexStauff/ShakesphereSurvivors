@@ -3,7 +3,9 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "GameFramework/Character.h"
 #include "survivorItem.h"
+#include "BaseProjectile.h"
 #include "survivorWeaponProjectile.generated.h"
 
 /**
@@ -13,8 +15,16 @@ UCLASS()
 class SHAKESPHERESURVIVORS_API UsurvivorWeaponProjectile : public UsurvivorItem
 {
 	GENERATED_BODY()
+protected:
+	UPROPERTY(EditAnywhere, Category = Projectile)
+	TSubclassOf<class ABaseProjectile> ProjectileClass;
+
 public:
 	UsurvivorWeaponProjectile();
+
+	void DecrementTime(float delta);
+	void ActivateItem();
+
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Stats")
 	float baseProjWidth = 1.0f;
 
@@ -24,5 +34,6 @@ public:
 	//IsItBetterToHaveItShotgun or chaotic clumps
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Stats")
 	float shotgunAngle = 1.0f;
-	
+
+	void PrintFVector(const FVector& MyFVector);
 };
