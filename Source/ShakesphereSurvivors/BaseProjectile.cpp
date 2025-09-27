@@ -53,73 +53,12 @@ ABaseProjectile::ABaseProjectile()
         {
             ProjectileMeshComponent->SetStaticMesh(Mesh.Object);
         }
-
-        /*
-        static ConstructorHelpers::FObjectFinder<UMaterial>Material(TEXT("'/Game/SphereMaterial.SphereMaterial'"));
-        if (Material.Succeeded())
-        {
-            ProjectileMaterialInstance = UMaterialInstanceDynamic::Create(Material.Object, ProjectileMeshComponent);
-        }
-        ProjectileMeshComponent->SetMaterial(0, ProjectileMaterialInstance);
-        */
         ProjectileMeshComponent->SetRelativeScale3D(FVector(2.0f, 2.0f, 2.0f));
         ProjectileMeshComponent->SetupAttachment(RootComponent);
         ProjectileMeshComponent->CastShadow = false;
     }
     // Delete the projectile after 3 seconds.
     InitialLifeSpan = 3.0f;
-    /*PrimaryActorTick.bCanEverTick = true;
-    if (!RootComponent)
-    {
-        RootComponent = CreateDefaultSubobject<USceneComponent>(TEXT("ProjectileSceneComponent"));
-    }
-
-    if (!CollisionComponent)
-    {
-        // Use a sphere as a simple collision representation.
-        CollisionComponent = CreateDefaultSubobject<UBoxComponent>(TEXT("BoxComponent"));
-        // Set the sphere's collision radius.
-        //CollisionComponent->SetBoxExtent(FVector(18.0f,12.0f,24.0f));
-        CollisionComponent->SetBoxExtent(FVector(0.0f, 0.0f, 0.0f));
-        CollisionComponent->AddLocalOffset(FVector(15.0f, 0.0f, 0.0f));
-
-        // Set the sphere's collision profile name to "Projectile".
-        CollisionComponent->BodyInstance.SetCollisionProfileName(TEXT("Projectile"));
-        // Event called when component hits something.
-        CollisionComponent->OnComponentHit.AddDynamic(this, &ABaseProjectile::OnHit);
-        CollisionComponent->OnComponentBeginOverlap.AddDynamic(this, &ABaseProjectile::OnOverlapBegin);
-        CollisionComponent->OnComponentEndOverlap.AddDynamic(this, &ABaseProjectile::OnOverlapEnd);
-        CollisionComponent->SetVisibility(true);
-        CollisionComponent->SetHiddenInGame(false);
-        CollisionComponent->SetupAttachment(RootComponent);
-        // Set the root component to be the collision component.
-        //RootComponent = CollisionComponent;
-    }
-    if (!ProjectileMovementComponent)
-    {
-        // Use this component to drive this projectile's movement.
-        ProjectileMovementComponent = CreateDefaultSubobject<UProjectileMovementComponent>(TEXT("ProjectileMovementComponent"));
-        //ProjectileMovementComponent->SetUpdatedComponent(CollisionComponent);
-        ProjectileMovementComponent->InitialSpeed = 256.0F;
-        ProjectileMovementComponent->MaxSpeed = 256.0F;
-        ProjectileMovementComponent->bRotationFollowsVelocity = true;
-        ProjectileMovementComponent->bShouldBounce = true;
-        ProjectileMovementComponent->Bounciness = 0.3f;
-        ProjectileMovementComponent->ProjectileGravityScale = 0.0f;
-    }
-    if (!ProjectileMeshComponent)
-    {
-        ProjectileMeshComponent = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("ProjectileMeshComponent"));
-        static ConstructorHelpers::FObjectFinder<UStaticMesh>Mesh(TEXT("'/Game/SM_MERGED_SimpleDagger.SM_MERGED_SimpleDagger'"));
-        if (Mesh.Succeeded())
-        {
-            ProjectileMeshComponent->SetStaticMesh(Mesh.Object);
-        }
-    }
-    ProjectileMeshComponent->CastShadow = false;
-    ProjectileMeshComponent->SetupAttachment(RootComponent);
-    InitialLifeSpan = 7.0f;
-    */
 }
 
 // Called when the game starts or when spawned
@@ -143,7 +82,7 @@ void ABaseProjectile::FireInDirection(const FVector& ShootDirection)
 // Function that is called when the projectile hits something.
 void ABaseProjectile::OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComponent, FVector NormalImpulse, const FHitResult& Hit)
 {
-    UE_LOG(LogTemp, Warning, TEXT("Hit it and quit it"));
+    
     if (OtherActor)
     {
         UGameplayStatics::ApplyDamage(
