@@ -92,7 +92,6 @@ void ASurvivorBase::equipWeapon(UsurvivorItem* newWeapon)
 		if (newWeapon)
 		{
 			newWeapon->RegisterComponent(); // Register the component with the engine
-			GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("Gottem"));
 		}
 
 	}

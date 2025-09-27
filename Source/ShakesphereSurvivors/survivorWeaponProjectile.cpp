@@ -21,7 +21,7 @@ void UsurvivorWeaponProjectile::ActivateItem() {
         {
             FActorSpawnParameters SpawnParams;
             // Spawn the projectile at the muzzle.
-            ABaseProjectile* Projectile = World->SpawnActor<ABaseProjectile>(ABaseProjectile::StaticClass(), WorldLocation + DirectionVector * (4.0f), FRotator(0.0f, 0.0f, 0.0f), SpawnParams);//World->SpawnActor<ABaseProjectile>(ProjectileClass, WorldLocation, DirectionVector, SpawnParams);
+            ABaseProjectile* Projectile = World->SpawnActor<ABaseProjectile>(ABaseProjectile::StaticClass(), WorldLocation + (DirectionVector * (16.0f)), FRotator(0.0f, 0.0f, 0.0f), SpawnParams);//World->SpawnActor<ABaseProjectile>(ProjectileClass, WorldLocation, DirectionVector, SpawnParams);
             if (Projectile)
             {
                 Projectile->FireInDirection(DirectionVector);

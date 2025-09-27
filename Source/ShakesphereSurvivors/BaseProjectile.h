@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "Components/BoxComponent.h"
+#include "Kismet/GameplayStatics.h"
 #include "GameFramework/ProjectileMovementComponent.h"
 #include "BaseProjectile.generated.h"
 
@@ -20,11 +21,11 @@ public:
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
-	virtual void Destroyed() override;
 
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+	
 	UPROPERTY(VisibleDefaultsOnly, Category = Projectile)
 	UBoxComponent* CollisionComponent;
 
@@ -32,8 +33,10 @@ public:
 	UPROPERTY(VisibleAnywhere, Category = Movement)
 	UProjectileMovementComponent* ProjectileMovementComponent;
 
+	void FireInDirection(const FVector& ShootDirection);
 	UPROPERTY(VisibleDefaultsOnly, Category = Projectile)
 	UStaticMeshComponent* ProjectileMeshComponent;
 
-	void FireInDirection(const FVector& ShootDirection);
+	UFUNCTION()
+	void OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComponent, FVector NormalImpulse, const FHitResult& Hit);
 };
