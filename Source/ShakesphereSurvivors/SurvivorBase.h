@@ -11,6 +11,7 @@
 #include "Runtime/Engine/Classes/GameFramework/PlayerController.h"
 #include "survivorItem.h"
 #include "survivorWeaponArc.h"
+#include "survivorWeaponProjectile.h"
 #include "SurvivorBase.generated.h"
 
 UCLASS()

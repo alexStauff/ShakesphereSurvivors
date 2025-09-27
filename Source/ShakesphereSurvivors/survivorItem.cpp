@@ -43,7 +43,6 @@ void UsurvivorItem::ActivateItem()
 {
 	//Logic to use weapon, for x attacks
 	//Reset Timer
-	GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("SHAW!"));
 	currentTimer = baseCooldown * cooldownReduction;
 	currentlyAttacking = false;
 }

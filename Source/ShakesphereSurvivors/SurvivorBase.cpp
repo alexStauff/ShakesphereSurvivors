@@ -30,7 +30,7 @@ void ASurvivorBase::BeginPlay()
 			Subsystem->AddMappingContext(PlayerContext, 0);
 		}
 	}
-	UsurvivorItem* NewComponent = NewObject<UsurvivorWeaponArc>(this, TEXT("ItemSlot1"));
+	UsurvivorItem* NewComponent = NewObject<UsurvivorWeaponProjectile>(this, TEXT("ItemSlot1"));
 	equipWeapon(NewComponent);
 	// Display a debug message for five seconds. 
 	// The -1 "Key" value argument prevents the message from being updated or refreshed.
