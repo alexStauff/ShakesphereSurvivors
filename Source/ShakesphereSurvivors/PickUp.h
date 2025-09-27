@@ -6,6 +6,7 @@
 #include "GameFramework/Actor.h"
 #include "Components/SphereComponent.h"
 #include "Components/StaticMeshComponent.h"
+#include "SurvivorBase.h"
 #include "PickUp.generated.h"
 
 UCLASS()
