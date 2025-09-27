@@ -48,7 +48,10 @@ float ABaseEnemyChar::TakeDamage(float DamageAmount, FDamageEvent const& DamageE
         {
             FActorSpawnParameters SpawnParams;
             // Spawn the projectile at the muzzle.
-            APickUp* pickUp = World->SpawnActor<APickUp>(APickUp::StaticClass(), WorldLocation, FRotator(0.0f, 0.0f, 0.0f), SpawnParams);//World->SpawnActor<ABaseProjectile>(ProjectileClass, WorldLocation, DirectionVector, SpawnParams);
+            AXp* pickUp = World->SpawnActor<AXp>(AXp::StaticClass(), WorldLocation, FRotator(0.0f, 0.0f, 0.0f), SpawnParams);
+            if (pickUp) {
+                pickUp->XPValueOnPickUp = 5;
+            }
         }
         Destroy();
         // Implement death logic here (e.g., play death animation, destroy actor)

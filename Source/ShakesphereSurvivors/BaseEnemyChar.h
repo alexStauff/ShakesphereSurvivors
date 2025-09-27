@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "PickUp.h"
+#include "Xp.h"
 #include "GameFramework/Character.h"
 #include "BaseEnemyChar.generated.h"
 

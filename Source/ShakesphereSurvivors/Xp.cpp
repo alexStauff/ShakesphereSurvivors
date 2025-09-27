@@ -3,3 +3,11 @@
 
 #include "Xp.h"
 
+void AXp::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
+{
+	if (OtherActor->IsA(ASurvivorBase::StaticClass())) {
+		UE_LOG(LogTemp, Warning, TEXT("Player has Earned %d XP!"), XPValueOnPickUp);
+		Super::OnOverlapBegin(OverlappedComp, OtherActor, OtherComp, OtherBodyIndex, bFromSweep, SweepResult);
+	}
+	
+}
