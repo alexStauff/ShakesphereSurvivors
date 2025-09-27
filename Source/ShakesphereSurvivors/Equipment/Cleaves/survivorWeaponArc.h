@@ -3,27 +3,35 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "survivorItem.h"
-#include "survivorWeaponLine.generated.h"
+#include "../survivorItem.h"
+#include "survivorWeaponArc.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class SHAKESPHERESURVIVORS_API UsurvivorWeaponLine : public UsurvivorItem
+class SHAKESPHERESURVIVORS_API UsurvivorWeaponArc : public UsurvivorItem
 {
 	GENERATED_BODY()
 public:
-	UsurvivorWeaponLine();
+	UsurvivorWeaponArc();
+	void DecrementTime(float delta);
+	void ActivateItem();
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Stats")
-	float baseLineWidth = 1.0f;
+	float arcAngle = 45.0f;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Stats")
-	float LineWidthMultiplier = 1.0f;
+	float angleMultiplier = 1.0f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Stats")
+	float arcExtention = 45.0f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Stats")
+	float extensionMultiplier = 1.0f;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Stats")
 	float numberOfAttacks = 1.0f;
-	
+
 	//solid maybe
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Stats")
 	float absoluteTimeBetweenAttacks = 0.1f;

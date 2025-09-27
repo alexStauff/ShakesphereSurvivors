@@ -3,9 +3,10 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "GM_ShakesphereSurvivors.h"
-#include "PickUp.h"
-#include "Xp.h"
+
+#include "../PickUps/PickUp.h"
+#include "../PickUps/Xp.h"
+#include "../GameLogic/GM_ShakesphereSurvivors.h"
 #include "GameFramework/Character.h"
 #include "BaseEnemyChar.generated.h"
 

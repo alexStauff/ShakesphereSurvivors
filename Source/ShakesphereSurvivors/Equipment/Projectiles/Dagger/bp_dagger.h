@@ -3,7 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "survivorWeaponProjectile.h"
+#include "../survivorWeaponProjectile.h"
 #include "bp_dagger.generated.h"
 
 /**

@@ -3,7 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "SurvivorBase.h"
+#include "../PlayerCharacters/SurvivorBase.h"
 #include "GameFramework/GameMode.h"
 #include "Kismet/GameplayStatics.h"
 #include "GM_ShakesphereSurvivors.generated.h"
@@ -16,8 +16,24 @@ class SHAKESPHERESURVIVORS_API AGM_ShakesphereSurvivors : public AGameMode
 {
 	GENERATED_BODY()
 
+public:
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Stats")
+	int currentLevel = 0;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Stats")
+	int currentXP = 0;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Stats")
+	int XPToNextLevel = 8;
+
 protected:
 	virtual void BeginPlay();
+
+	UFUNCTION()
+	void grantXP(float xpValue);
+
+	UFUNCTION()
+	void levelUp();
 
 	UPROPERTY(BlueprintReadOnly)
 	int currentAct = 1;

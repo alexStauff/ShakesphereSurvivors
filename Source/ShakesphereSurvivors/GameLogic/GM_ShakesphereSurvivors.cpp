@@ -13,6 +13,12 @@ void AGM_ShakesphereSurvivors::BeginPlay() {
     }
     
 }
+void AGM_ShakesphereSurvivors::grantXP(float xpValue)
+{
+}
+void AGM_ShakesphereSurvivors::levelUp()
+{
+}
 void AGM_ShakesphereSurvivors::Tick(float DeltaTime) {
     currentSpawnTimer -= DeltaTime;
     if (currentSpawnTimer <= 0.0f) {
